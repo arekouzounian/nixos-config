@@ -1,31 +1,25 @@
 {
-	description = "NixOS config flake"; 
+  description = "NixOS Tower Configuration";
 
-	inputs = {
-		nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable"; 
+  inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable"; 
+  };
 
-		home-manager = {
-			url = "github:nix-community/home-manager"; 
-			inputs.nixpkgs.follows = "nixpkgs"; 
-		}; 
-	}; 
-
-	outputs = inputs@{ self, nixpkgs, home-manager, ... }: {
-		nixosConfigurations = {
-			arek = nixpkgs.lib.nixosSystem {
-				system = "x86_64-linux"; 
-				modules = [
-					./configuration.nix 
-					home-manager.nixosModules.home-manager
-					{
-						home-manager.useGlobalPkgs = true; 
-						home-manager.useUserPackages = true; 
-						home-manager.users.arek = {
-							imports = [ ./home.nix ]; 
-						};
-					}
-				]; 
-			};
-		}; 
-	}; 
+  outputs = { nixpkgs, ... } @ inputs: 
+  {
+    nixosConfigurations.nixos-tower = nixpkgs.lib.nixosSystem {
+      specialArgs = { inherit inputs; };
+      modules = [
+        ./configuration.nix
+	./hardware-configuration.nix
+	./nvidia.nix
+        ./users.nix 
+        ./sys-packages.nix
+        ./internationalization.nix 
+        ./program-conf.nix
+        ./gc.nix
+	./services.nix
+      ];
+    };
+  };
 }

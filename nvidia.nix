@@ -7,11 +7,12 @@
 
   services.xserver.videoDrivers = ["nvidia"];
 
+
   hardware.nvidia = {
     modesetting.enable = true; 
 
     # experimental, buggy
-    powerManagement.enable = false; 
+    powerManagement.enable = true; 
 
     # also experimental, turn off GPU when not in use
     powerManagement.finegrained = false; 
