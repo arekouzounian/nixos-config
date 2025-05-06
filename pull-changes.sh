@@ -1,4 +1,6 @@
-sudo cp /etc/nixos/*.nix .
-sudo cp /etc/nixos/flake.lock .
+sudo cp /etc/nixos/*.nix config
+sudo cp /etc/nixos/flake.lock config
 
-sudo chown $USER ./*.*
+cp ~/.config/home-manager/* home-manager/
+
+sudo chown $USER config/*.*

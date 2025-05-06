@@ -30,11 +30,9 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-
-  # Hyprland
-  # programs.hyprland = {
-  #   enable = true; 
-  # };
+  
+  # enable polkit 
+  security.polkit.enable = true;
 
 
   # Some programs need SUID wrappers, can be configured further or are

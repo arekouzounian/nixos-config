@@ -7,5 +7,6 @@
     neovim
     vscode 
     alacritty
+    gh
   ];
 }

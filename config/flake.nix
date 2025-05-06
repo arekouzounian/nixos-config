@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable"; 
+    rust-overlay.url = "github:oxalica/rust-overlay";
   };
 
   outputs = { nixpkgs, ... } @ inputs: 
@@ -19,6 +20,12 @@
         ./program-conf.nix
         ./gc.nix
 	./services.nix
+	./programming.nix
+	./rust.nix
+	./hyprland.nix
+	./games.nix
+	./sway.nix
+	./lsp.nix
       ];
     };
   };

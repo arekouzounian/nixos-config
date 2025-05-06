@@ -9,6 +9,7 @@
       kdePackages.kate
       discord-ptb 
       neofetch
+      bat
     ];
   };
 }

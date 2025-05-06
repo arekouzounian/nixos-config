@@ -1,8 +1,9 @@
 { ... }:
 
 {
-  # Enable X11
-  services.xserver.enable = true; 
+  # Uncomment to Enable X11 
+  # if not, only use Wayland
+  # services.xserver.enable = true; 
 
   # enable KDE Plasma
   services.displayManager.sddm.enable = true; 
